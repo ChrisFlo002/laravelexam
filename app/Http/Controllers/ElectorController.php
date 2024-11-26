@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Elector;
 use App\Models\State;
 use App\Models\Party;
+use Illuminate\Http\Request;
 
-class PresElectorController extends Controller
+class ElectorController extends Controller
 {
     public function showElectorHome(){
         $electors = Elector::all();

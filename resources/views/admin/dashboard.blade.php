@@ -95,19 +95,36 @@
 
         <div id="governor" class="content-section d-none">
           <h2>Governor Table</h2>
+          <div class="search-form">
+            <a class="btn btn-primary btn-add" href="govenorForm.blade.php">
+                <i class="fa fa-plus"></i> Ajouter
+            </a>
+        </div>
           <table class="table table-bordered">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>State</th>
+                <th>user_id</th>
+                <th>state_id</th>
+                <th>party_id</th>
+                <th colspan="2">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
                 <td>John Doe</td>
-                <td>California</td>
+                <td>tx</td>
+                <td>Republican</td>
+                <td>
+                    <a class="btn btn-edit text-primary" href="">
+                        <i class="fa fa-edit"></i> Modifier
+                    </a>
+                    </td>
+                    <td>
+                    <a class="btn btn-delete text-danger" href="">
+                        <i class="fa fa-trash"></i> Supprimer
+                    </a>
               </tr>
             </tbody>
           </table>
@@ -115,19 +132,42 @@
 
         <div id="elector" class="content-section d-none">
           <h2>Elector Table</h2>
+          <div class="search-form">
+            <a class="btn btn-primary btn-add" href="electorForm.blade.php">
+                <i class="fa fa-plus"></i> Ajouter
+            </a>
+        </div>
+
           <table class="table table-bordered">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Vote</th>
+                <th>state_id</th>
+                <th>name</th>
+                <th>gender</th>
+                <th>party_id</th>
+                <th>age</th>
+                <th colspan="2">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
+                <td>tx</td>
                 <td>Jane Smith</td>
-                <td>Yes</td>
+                <td>Male</td>
+                <td>Republican</td>
+                <td>25</td>
+                <td>
+                    <a class="btn btn-edit text-primary" href="">
+                        <i class="fa fa-edit"></i> Modifier
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-delete text-danger" href="">
+                        <i class="fa fa-trash"></i> Supprimer
+                    </a>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -135,19 +175,41 @@
 
         <div id="state" class="content-section d-none">
           <h2>State Table</h2>
+        <div class="search-form">
+            <a class="btn btn-primary btn-add" href="stateForm.blade.php">
+                <i class="fa fa-plus"></i> Ajouter
+            </a>
+        </div>
+
           <table class="table table-bordered">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Population</th>
+                <th>code</th>
+                <th>name</th>
+                <th>population</th>
+                <th>area</th>
+                <th>pib</th>
+                <th colspan="2">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>1</td>
+                <td>tx</td>
                 <td>Texas</td>
                 <td>29M</td>
+                <td>center</td>
+                <td>78288</td>
+                <td>
+                    <a class="btn btn-edit text-primary" href="">
+                        <i class="fa fa-edit"></i> Modifier
+                    </a>
+                    </td>
+                    <td>
+                    <a class="btn btn-delete text-danger" href="">
+                        <i class="fa fa-trash"></i> Supprimer
+                    </a>
               </tr>
             </tbody>
           </table>

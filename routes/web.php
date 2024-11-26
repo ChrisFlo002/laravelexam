@@ -42,6 +42,7 @@ Route::post('/postState', [StateController::class, 'createState']);
 Route::get('/delstate/{id}', [StateController::class, 'deleteState']);
 Route::get('/edstate/{id}', [StateController::class, 'updateState']);
 Route::put('/edstate/{id}', [StateController::class, 'update']);
+
 //flags
 Route::get('/flag', [FlagController::class, 'showFlagHome']);
 Route::get('/newflag', [FlagController::class, 'showFlagCreate']);
@@ -71,9 +72,9 @@ Route::get('/delsenator/{id}', [SenatorController::class, 'deleteSenator']);
 Route::get('/edsenator/{id}', [SenatorController::class, 'updateSenator']);
 Route::put('/edsenator/{id}', [SenatorController::class, 'update']);
 //elector
-Route::get('/elector', [PresElectorController::class, 'showElectorHome']);
-Route::get('/newElector', [PresElectorController::class, 'showElectorCreate']);
-Route::post('/postelector', [PresElectorController::class, 'createelector']);
-Route::get('/delelector/{id}', [PresElectorController::class, 'deleteelector']);
-Route::get('/edelector/{id}', [PresElectorController::class, 'updateelector']);
-Route::put('/edelector/{id}', [PresElectorController::class, 'update']);
+Route::get('/elector', [ElectorController::class, 'showElectorHome']);
+Route::get('/newElector', [ElectorController::class, 'showElectorCreate']);
+Route::post('/postelector', [ElectorController::class, 'createelector']);
+Route::get('/delelector/{id}', [ElectorController::class, 'deleteelector']);
+Route::get('/edelector/{id}', [ElectorController::class, 'updateelector']);
+Route::put('/edelector/{id}', [ElectorController::class, 'update']);
