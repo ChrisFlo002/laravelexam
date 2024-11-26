@@ -63,8 +63,8 @@ Follow the instructions below to set up the project on your local machine.
      DB_HOST=127.0.0.1
      DB_PORT=3306
      DB_DATABASE=election
-     DB_USERNAME=your_database_username # probably 'root'
-     DB_PASSWORD=your_database_password # probably ''
+     DB_USERNAME=your_database_username # 'root'
+     DB_PASSWORD=your_database_password # ''
      ```
 
 4. **Run Migrations**:
