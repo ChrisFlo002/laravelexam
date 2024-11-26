@@ -54,6 +54,7 @@ Follow the instructions below to set up the project on your local machine.
    ```
 
 3. **Setup Environment**:
+
    - Update your `.env` file with database credentials and other configurations:
      ```env
      DB_CONNECTION=mysql
@@ -64,22 +65,22 @@ Follow the instructions below to set up the project on your local machine.
      DB_PASSWORD=your_database_password # ''
      ```
 
-4. **Run Migrations**:
+5. **Run Migrations**:
    ```bash
    php artisan migrate
    ```
 
-5. **Generate Application Key**:
+6. **Generate Application Key**:
    ```bash
    php artisan key:generate
    ```
 
-6. **Compile Front-End Assets**:
+7. **Compile Front-End Assets**:
    ```bash
    npm run dev
    ```
 
-7. **Run the Development Server**:
+8. **Run the Development Server**:
    ```bash
    php artisan serve
    ```
