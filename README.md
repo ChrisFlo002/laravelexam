@@ -72,22 +72,17 @@ Follow the instructions below to set up the project on your local machine.
    php artisan migrate
    ```
 
-5. **Seed the Database (Optional)**:
-   ```bash
-   php artisan db:seed
-   ```
-
-6. **Generate Application Key**:
+5. **Generate Application Key**:
    ```bash
    php artisan key:generate
    ```
 
-7. **Compile Front-End Assets**:
+6. **Compile Front-End Assets**:
    ```bash
    npm run dev
    ```
 
-8. **Run the Development Server**:
+7. **Run the Development Server**:
    ```bash
    php artisan serve
    ```
