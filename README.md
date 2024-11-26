@@ -102,9 +102,7 @@ The system utilizes the following tables:
 - `GrandElecteur`: Contains details of grand electors.  
 - `Senateur`: Contains details of senators.  
 - `Gouverneur`: Contains details of governors.
-- `Parlementaire`: Contains details of senator.  
-
-Refer to the [database.sql](database.sql) file for the complete schema.
+- `Parlementaire`: Contains details of senator.
 
 ---
 
