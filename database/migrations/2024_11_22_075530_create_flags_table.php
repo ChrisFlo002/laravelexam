@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('flags', function (Blueprint $table) {
             $table->id();
+            $table->string('path');
+            $table->foreignId('state_id')->constrained();
             $table->timestamps();
         });
     }

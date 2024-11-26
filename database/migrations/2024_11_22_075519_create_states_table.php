@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('states', function (Blueprint $table) {
             $table->id();
+            $table->string("code");
+            $table->string('name');
+            $table->double('pib');
+            $table->double('population');
+            $table->double('area');
             $table->timestamps();
         });
     }

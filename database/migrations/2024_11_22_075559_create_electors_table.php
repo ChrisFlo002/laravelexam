@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('electors', function (Blueprint $table) {
             $table->id();
+            $table->string('name_elector');
+            $table->string('gender');
             $table->timestamps();
+            $table->foreignId('party_id')->constrained();
+            $table->foreignId('state_id')->constrained();
         });
     }
 
