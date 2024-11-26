@@ -65,22 +65,22 @@ Follow the instructions below to set up the project on your local machine.
      DB_PASSWORD=your_database_password # ''
      ```
 
-5. **Run Migrations**:
+4. **Run Migrations**:
    ```bash
    php artisan migrate
    ```
 
-6. **Generate Application Key**:
+5. **Generate Application Key**:
    ```bash
    php artisan key:generate
    ```
 
-7. **Compile Front-End Assets**:
+6. **Compile Front-End Assets**:
    ```bash
    npm run dev
    ```
 
-8. **Run the Development Server**:
+7. **Run the Development Server**:
    ```bash
    php artisan serve
    ```
