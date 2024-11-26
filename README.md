@@ -42,8 +42,8 @@ Follow the instructions below to set up the project on your local machine.
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/election-management.git
-   cd election-management
+   git clone https://github.com/ChrisFlo002/laravelexam.git
+   cd laravelexam
    ```
 
 2. **Install Dependencies**:
@@ -59,9 +59,12 @@ Follow the instructions below to set up the project on your local machine.
      ```
    - Update your `.env` file with database credentials and other configurations:
      ```env
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
      DB_DATABASE=election
-     DB_USERNAME=your_database_username
-     DB_PASSWORD=your_database_password
+     DB_USERNAME=your_database_username // probably 'root'
+     DB_PASSWORD=your_database_password // probably ''
      ```
 
 4. **Run Migrations**:
