@@ -54,10 +54,6 @@ Follow the instructions below to set up the project on your local machine.
    ```
 
 3. **Setup Environment**:
-   - Copy the `.env.example` file to `.env`:
-     ```bash
-     cp .env.example .env
-     ```
    - Update your `.env` file with database credentials and other configurations:
      ```env
      DB_CONNECTION=mysql
