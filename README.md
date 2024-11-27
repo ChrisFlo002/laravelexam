@@ -49,8 +49,7 @@ Follow the instructions below to set up the project on your local machine.
 2. **Install Dependencies**:
    ```bash
    composer install
-   composer require laravel/breeze --dev
-   php artisan breeze:install
+   npm install
    ```
 
 3. **Setup Environment**:
