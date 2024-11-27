@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Flag;
 
 class FlagController extends Controller
 {
     public function showFlagHome(){
-        $flags = FlagModel::all();
-        return view('flag.homeflag',['flags'=>$flags]);
+        $flags = Flag::all();
+        return view('flag.index',['flags'=>$flags]);
     }
     public function showFlagCreate(){
-        return view('flag.flaghome');
+        return view('flag.newflag');
     }
     public function showFlagDelete(){
         return view('flag.deleteflag');
@@ -27,7 +28,7 @@ class FlagController extends Controller
     }
     public function updateFlag(int $id){
         $flag = FlagModel::findOrfail($id);
-        return view('flag.flagedit',['flag'=>$flag]);
+        return view('flag.edflag',['flag'=>$flag]);
     }
     public function update(Request $req, int $id){
         $req->validate([

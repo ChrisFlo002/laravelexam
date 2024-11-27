@@ -8,11 +8,15 @@ use App\Models\Party;
 class PartyController extends Controller
 {
     public function showPartyCreate(){
-        return view('partyhome');
+        return view('party.newparty');
+    }
+    public function showPartyDetails($id){
+        $party = Party::find($id);
+        return view('party.detparty',['party'=> $party]);
     }
     public function showPartyHome(){
         $parties = Party::all();
-        return view('party.homeparty',['parties'=> $parties]);
+        return view('party.index',['parties'=> $parties]);
     }
     public function showPartyDelete(){
         return view('party.deleteparty');
@@ -28,7 +32,7 @@ class PartyController extends Controller
     }
     public function updateParty(int $id){
         $party = Party::findOrfail($id);
-        return view('party.partyedit',['party'=>$party]);
+        return view('party.edparty',['party'=>$party]);
     }
     public function update(Request $req, int $id){
         $req->validate([

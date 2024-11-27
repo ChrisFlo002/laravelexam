@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Parlementire;
+use App\Models\Parlementaire;
 use App\Models\State;
 use App\Models\Party;
 
 class ParlementaireController extends Controller
 {
     public function showParlementaireHome(){
-        $senators = Senator::all();
-        return view('parlementaire.homeSenator',['parlementaires'=>$senators]);
+        $parlementaires = Parlementaire::all();
+        return view('parlementaire.index',['parlementaires'=>$parlementaires]);
     }
     public function showParlementaireCreate(){
         $states= State::all();
         $parties = Party::all();
-        return view('parlementaire.senatorhome',['states'=>$states,'parties'=>$parties]);
+        return view('parlementaire.newparlementiare',['states'=>$states,'parties'=>$parties]);
     }
     public function showParlementaireDelete(){
         return view('parlementaire.deletesenator');
@@ -29,7 +29,7 @@ class ParlementaireController extends Controller
             'party_id' => 'required|integer',
             'age' => 'required|integer|min:18',
         ]);
-        Senator::create([
+        Parlementaire::create([
             'name'=> $request->name,
             'gender'=> $request->gender,
             'age'=> $request->age,
@@ -42,7 +42,7 @@ class ParlementaireController extends Controller
         $senator = Senator::findOrfail($id);
         $states= State::all();
         $parties = Party::all();
-        return view('parlementaire.senatorEdit',['states'=>$states,'parties'=>$parties,'senator'=>$senator]);
+        return view('parlementaire.edparlementaire',['states'=>$states,'parties'=>$parties,'senator'=>$senator]);
     }
     public function update(Request $req, int $id){
         $req->validate([

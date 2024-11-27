@@ -9,14 +9,18 @@ use Illuminate\Http\Request;
 
 class ElectorController extends Controller
 {
+    public function showElectorDetails($id){
+        $elector = Elector::find($id);
+        return view('elector.detelector',['elector'=> $elector]);
+    }
     public function showElectorHome(){
         $electors = Elector::all();
-        return view('elector.homeelectors',['electors'=> $electors]);
+        return view('elector.index',['electors'=> $electors]);
     }
     public function showElectorCreate(){
         $states= State::all();
         $parties = Party::all();
-        return view('elector.electorhome',['states'=>$states,'parties'=>$parties]);
+        return view('elector.newelector',['states'=>$states,'parties'=>$parties]);
     }
     public function showElectorDelete(){
         return view('elector.deleteelectors');
@@ -40,7 +44,7 @@ class ElectorController extends Controller
         $elector = Elector::findOrfail($id);
         $states= State::all();
         $parties = Party::all();
-        return view('elector.preselectoredit',['states'=>$states,'parties'=>$parties,'elector'=>$elector]);
+        return view('elector.edelector',['states'=>$states,'parties'=>$parties,'elector'=>$elector]);
     }
     public function update(Request $req, int $id){
         $req->validate([
