@@ -8,6 +8,6 @@
         <title>User</title>
     </head>
     <body>
-        <h1>This is the user Dashboard</h1>
+        <h1>This is the governor Dashboard</h1>
     </body>
 </html>

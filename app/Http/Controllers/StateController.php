@@ -10,7 +10,7 @@ class StateController extends Controller
 {
     public function showStateCreate(){
 
-        return view('state.statehome');
+        return view('admin.stateForm');
     }
     public function showStateHome(){
         $states = State::all();

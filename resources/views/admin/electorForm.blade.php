@@ -55,7 +55,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="party_id" class="form-label fw-bold">Party ID</label>
+                    <label for="party_id" class="form-label fw-bold">Party</label>
                     <input type="text" id="party_id" name="party_id" class="form-control" placeholder="Enter party ID" required>
                 </div>
                 <div class="mb-3">
