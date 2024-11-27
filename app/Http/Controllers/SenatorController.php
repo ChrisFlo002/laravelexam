@@ -11,12 +11,12 @@ class SenatorController extends Controller
 {
     public function showSenatorHome(){
         $senators = Senator::all();
-        return view('senator.homeSenator',['senators'=>$senators]);
+        return view('senator.index',['senators'=>$senators]);
     }
     public function showSenatorCreate(){
         $states= State::all();
         $parties = Party::all();
-        return view('senator.senatorhome',['states'=>$states,'parties'=>$parties]);
+        return view('senator.newsenator',['states'=>$states,'parties'=>$parties]);
     }
     public function showSenatorDelete(){
         return view('senator.deletesenator');
@@ -42,7 +42,7 @@ class SenatorController extends Controller
         $senator = Senator::findOrfail($id);
         $states= State::all();
         $parties = Party::all();
-        return view('senator.senatorEdit',['states'=>$states,'parties'=>$parties,'senator'=>$senator]);
+        return view('senator.edsenator',['states'=>$states,'parties'=>$parties,'senator'=>$senator]);
     }
     public function update(Request $req, int $id){
         $req->validate([

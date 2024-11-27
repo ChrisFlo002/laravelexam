@@ -8,15 +8,18 @@ use App\Models\State;
 use App\Models\Party;
 class GovernorController extends Controller
 {
+    public function showdash(){
+        return view('governor.dashboard');
+    }
     public function showGovernorHome(){
         $governors= Governor::all();
-        return view('governor.homegouvernors',['governors'=>$governors]);
+        return view('governor.index',['governors'=>$governors]);
     }
 
     public function showGovernorCreate(){
         $states= State::all();
         $parties = Party::all();
-        return view('governor.governorhome',['states'=>$states,'parties'=>$parties]);
+        return view('governor.newgovernor',['states'=>$states,'parties'=>$parties]);
     }
 
     public function showGovernorDelete(){
@@ -42,7 +45,7 @@ class GovernorController extends Controller
         $governor = Governor::findOrfail($id);
         $states= State::all();
         $parties = Party::all();
-        return view('governor.governoredit',['states'=>$states,'parties'=>$parties,'governor'=>$governor]);
+        return view('governor.edgovernor',['states'=>$states,'parties'=>$parties,'governor'=>$governor]);
     }
     public function update(Request $req, int $id){
         $req->validate([
