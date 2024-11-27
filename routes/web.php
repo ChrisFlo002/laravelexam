@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GovernorController;
-use App\Http\Controllers\PartyController;
-use App\Http\Controllers\ElectorController;
-use App\Http\Controllers\SenatorController;
-use App\Http\Controllers\StateController;
 use App\Http\Controllers\FlagController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PartyController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\ElectorController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SenatorController;
+use App\Http\Controllers\GovernorController;
 use App\Http\Controllers\ParlementaireController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -88,7 +89,7 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::put('/edelector/{id}', [ElectorController::class, 'update']);
 });
 Route::middleware(['auth','governor','role:governor'])->group(function(){
-    Route::get('governor/dashboard',[Governor::class, 'showdash']);
+    Route::get('governor/dashboard',[GovernorController::class, 'showdash']);
 });
 //common routes controllers
 //states
