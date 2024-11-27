@@ -27,5 +27,6 @@ class Admin
         if($userRole == 'governor'){
             return redirect()->route('dashboard');
         }
+        return $next($request);
     }
 }

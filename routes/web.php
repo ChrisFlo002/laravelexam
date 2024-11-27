@@ -15,6 +15,8 @@ use App\Http\Controllers\ParlementaireController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
 Route::view('admin','admin')
 ->middleware(['auth','verified','admin'])
 ->name('admin');
@@ -23,14 +25,12 @@ Route::view('governor','governor')
 ->middleware(['auth','verified','governor'])
 ->name('governor');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth','verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout');
 });
 
 require __DIR__.'/auth.php';

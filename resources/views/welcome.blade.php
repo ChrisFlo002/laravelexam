@@ -37,12 +37,13 @@
         </style>
     </head>
     <body>
+        <img src="{{ asset('images/flad_usa.png') }}" style="width: 150px;">
+        <br>
         <h1>Welcome to the US Election app</h1>
-        @if (Route::has('login'))
-            <a href="{{ route('login') }}" class="login-button">
+        <br>
+            <a href="/login" class="login-button">
                 <i class="fas fa-sign-in-alt"></i>
                 Log in
             </a>
-        @endif
     </body>
 </html>

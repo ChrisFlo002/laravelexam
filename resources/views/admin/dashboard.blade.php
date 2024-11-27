@@ -13,7 +13,7 @@
     <!-- Sidebar -->
     <nav class="bg-primary text-white p-3 sidebar">
       <div class="text-center mb-3">
-        <img src="./flad_usa.png" alt="" style="width: 100px;">
+        <img src="{{ asset('images/flad_usa.png') }}" style="width: 100px;">
         <h5>USA Elections</h5>
       </div>
       <ul class="nav flex-column">
@@ -53,9 +53,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-white d-flex align-items-center" onclick="showSection('disconnect')">
-            <i class="fas fa-sign-out-alt me-2"></i>Disconnect
-          </a>
+            <form method="POST" action="/logout">
+                 @csrf
+                <button type="submit" class="nav-link text-white d-flex align-items-center">
+                    <i class="fas fa-sign-out-alt me-2"></i>Disconnect
+                </button>
+            </form>
         </li>
       </ul>
     </nav>
@@ -235,13 +238,13 @@
         }
         document.addEventListener('DOMContentLoaded', () => {
         const storedSection = localStorage.getItem('activeSection');
-        
+
         if (storedSection) {
             showSection(storedSection);
         } else {
             showSection('home');
         }
-        
+
         });
   </script>
 </body>
