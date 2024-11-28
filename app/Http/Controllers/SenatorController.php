@@ -13,6 +13,10 @@ class SenatorController extends Controller
         $senators = Senator::all();
         return view('senator.index',['senators'=>$senators]);
     }
+    public function showSenatorDetails(int $id){
+        $senator = Senator::findOrFail($id);
+        return view('senator.detsenator',['senator'=>$senator]);
+    }
     public function showSenatorCreate(){
         $states= State::all();
         $parties = Party::all();

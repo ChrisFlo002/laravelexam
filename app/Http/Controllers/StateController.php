@@ -93,7 +93,7 @@ class StateController extends Controller
         $state->delete();
         return redirect('/state')->with('status', 'State deleted');
     }
-    public function showStateDetails($pk){
+    public function showStateDetails(int $pk){
         $state = State::findOrFail($pk);
 
            return view('state.detstate',['state' => $state]);

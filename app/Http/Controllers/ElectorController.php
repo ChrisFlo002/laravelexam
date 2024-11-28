@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ElectorController extends Controller
 {
-    public function showElectorDetails($id){
+    public function showElectorDetails(int $id){
         $elector = Elector::find($id);
         return view('elector.detelector',['elector'=> $elector]);
     }

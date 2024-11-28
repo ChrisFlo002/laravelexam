@@ -35,28 +35,34 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 Route::middleware(['auth','admin','role:admin'])->group(function(){
-    Route::get('admin/dashboard',[AdminController::class, 'showdash']);
+    //user
+    Route::get('admin/dashboard',[UserController::class, 'showdash']);
+    Route::get('/user',[UserController::class,'showAdminHome']);
+    Route::get('/newuser',[UserController::class,'showuserCreate']);
+    Route::get('/deluser/{id}',[UserController::class,'delete']);
+    Route::get('/detuser',[UserController::class,'showAdminDetails']);
+    Route::post('/postuser',[UserController::class,'createUser']);
+    Route::put('/eduser/{id}',[UserController::class,'update']);
+    Route::get('/eduser/{id}',[UserController::class,'showUpdateUser']);
+    Route::get('/partinfo',[UserController::class,'showInfoParti']);
     //states
     Route::get('/state', [StateController::class, 'showStateHome']);
     Route::get('/newstate', [StateController::class, 'showStateCreate']);
-    Route::get('/delstate{id}', [StateController::class, 'showStateDelete']);
+    Route::get('/detstate{id}', [StateController::class, 'showStateDetails']);
     Route::post('/postState', [StateController::class, 'createState']);
     Route::get('/delstate/{id}', [StateController::class, 'deleteState']);
     Route::get('/edstate/{id}', [StateController::class, 'updateState']);
     Route::put('/edstate/{id}', [StateController::class, 'update']);
     //flags
     Route::get('/flag', [FlagController::class, 'showFlagHome']);
-    Route::get('/newflag', [FlagController::class, 'showFlagCreate']);
-    Route::get('/delflag/{id}', [FlagController::class, 'deleteFlag']);
-    Route::post('/postflag', [FlagController::class, 'createFlag']);
-    Route::get('/edflag/{id}', [FlagController::class, 'updateFlag']);
-    Route::put('/edflag/{id}', [FlagController::class, 'update']);
+    Route::post('/detflag/{id}', [FlagController::class, 'showFlagDetails']);
     //party
     Route::get('/party', [PartyController::class, 'showPartyHome']);
     Route::get('/newparty', [PartyController::class, 'showPartyCreate']);
     Route::get('/delparty/{id}', [PartyController::class, 'deleteParty']);
     Route::post('/postparty', [PartyController::class, 'createParty']);
     Route::get('/edparty/{id}', [PartyController::class, 'updateParty']);
+    Route::get('/detparty/{id}', [PartyController::class, 'showPartyDetails']);
     Route::put('/edparty/{id}', [PartyController::class,'update']);
     //governor
     Route::get('/governor', [GovernorController::class, 'showGovernorHome']);
@@ -71,12 +77,14 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::post('/postsenator', [SenatorController::class, 'createSenator']);
     Route::get('/delsenator/{id}', [SenatorController::class, 'deleteSenator']);
     Route::get('/edsenator/{id}', [SenatorController::class, 'updateSenator']);
+    Route::get('/detsenator/{id}', [SenatorController::class, 'showSenatorDetails']);
     Route::put('/edsenator/{id}', [SenatorController::class, 'update']);
     //parliament
     Route::get('/parle', [ParlementaireController::class, 'showParlementaireHome']);
     Route::get('/newparle', [ParlementaireController::class, 'showParlementaireCreate']);
     Route::post('/postparle', [ParlementaireController::class, 'createParlementaire']);
     Route::get('/delparle/{id}', [ParlementaireController::class, 'deleteParlementaire']);
+    Route::get('/detparle/{id}', [ParlementaireController::class, 'showParleDetails']);
     Route::get('/edparle/{id}', [ParlementaireController::class, 'updateparlementaire']);
     Route::put('/edparle/{id}', [ParlementaireController::class, 'update']);
     //elector
@@ -84,30 +92,15 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::get('/newElector', [ElectorController::class, 'showElectorCreate']);
     Route::post('/postelector', [ElectorController::class, 'createelector']);
     Route::get('/delelector/{id}', [ElectorController::class, 'deleteelector']);
+    Route::get('/detelector/{id}', [ElectorController::class, 'showElectorDetails']);
     Route::get('/edelector/{id}', [ElectorController::class, 'updateelector']);
     Route::put('/edelector/{id}', [ElectorController::class, 'update']);
 });
 Route::middleware(['auth','governor','role:governor'])->group(function(){
     Route::get('governor/dashboard',[Governor::class, 'showdash']);
+    Route::get('detgovernor',[Governor::class, 'showGovernorDetails']);
+    Route::get('governor/electors',[Governor::class, 'showGovernorElectors']);
+    Route::get('governor/senators',[Governor::class, 'showGovernorSenators']);
+    Route::get('governor/parlementaire',[Governor::class, 'showGovernorParlementaire']);
 });
-//common routes controllers
-//states
-
-
-
-//flags
-
-
-
-//party
-
-
-//governor
-
-
-//senator
-
-
-//elector
-
 
