@@ -46,7 +46,7 @@
 <body>
 
     <h1>Edit parliament page</h1>
-    <form action="/edparle/{{$parle->id}}" method="post">
+    <form action="/admin/edparle/{{$parle->id}}" method="post">
         @csrf
         @method("PUT")
         <label for="nom_senateur">Full name:</label>

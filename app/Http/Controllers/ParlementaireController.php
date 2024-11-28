@@ -40,7 +40,7 @@ class ParlementaireController extends Controller
             'party_id'=> $request->party_id,
             'state_id'=> $request->state_id,
         ]);
-        return redirect('/parle')->with('status', 'Parlementaire added');
+        return redirect('/admin/parle')->with('status', 'Parlementaire added');
     }
     public function updateParlementaire(int $id){
         $parle = Parlementaire::findOrfail($id);
@@ -57,11 +57,11 @@ class ParlementaireController extends Controller
             'age' => 'required|integer|min:18',
         ]);
         Parlementaire::findOrfail($id)->update($req->all());
-        return redirect('/parle')->with('status', 'Parlementaire updated');
+        return redirect('/admin/parle')->with('status', 'Parlementaire updated');
     }
     public function deleteParlementaire(int $id){
         $parle = Parlementaire::findOrFail($id);
         $parle->delete();
-        return redirect('/parle')->with('status', 'Parlementaire deleted');
+        return redirect('/admin/parle')->with('status', 'Parlementaire deleted');
     }
 }

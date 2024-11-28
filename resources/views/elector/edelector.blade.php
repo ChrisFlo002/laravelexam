@@ -47,7 +47,7 @@
 <body>
     <div class="container">
         <h1>Edit presidential elector page</h1>
-        <form method="POST" action="/edelector/{{$elector->id}}">
+        <form method="POST" action="/admin/edelector/{{$elector->id}}">
             @csrf
             @method("PUT")
             <table>

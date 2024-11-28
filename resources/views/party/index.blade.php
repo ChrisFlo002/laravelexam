@@ -1,3 +1,6 @@
+@extends('layouts.partials.dashboard')
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,55 +8,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Party Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
         }
 
         h1 {
+            margin-top: 20px;
             text-align: center;
+            color: #0d6efd;
         }
 
-        table {
-            width: 30%;
-            margin: 0 auto;
-            padding: 0px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .btn-primary {
+            background-color: #0d6efd;
+            border: none;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+        }
+
+        .btn-success {
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            margin-top: 30px;
+        }
+
+        .actions-btns a {
+            margin-right: 5px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Party Home</h1>
-    <form action="/newparty">
-        <button type="submit" style="align: center; background-color: blue; color:white;">Add Party</button>
-    </form>
-    @if (count($parties) > 0)
-        <table>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Action</th>
-            </tr>
-            @foreach ($parties as $party)
-                <tr>
-                    <td>{{ $party->id }}</td>
-                    <td>{{ $party->name_party }}</td>
-                    <td>
-                        <a href="/edparty/{{ $party->id }}">Edit</a>
-                        <a href="/delparty/{{ $party->id }}"
-                            onclick="return confirm('Are you sure you want to delete senator?')">Delete</a>
-                    </td>
-                </tr>
-            @endforeach
-        </table>
-    @endif
+    <div class="container">
+        <h1>Party Home</h1>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <p class="lead">Manage the list of parties below:</p>
+            <form action="/admin/newparty" class="d-inline">
+                <button type="submit" class="btn btn-success">Add Party</button>
+            </form>
+        </div>
+
+        @if (count($parties) > 0)
+            <div class="table-container">
+                <table class="table table-bordered table-hover text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($parties as $party)
+                            <tr>
+                                <td>{{ $party->id }}</td>
+                                <td>{{ $party->name_party }}</td>
+                                <td class="actions-btns">
+                                    <a href="/admin/edparty/{{ $party->id }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/admin/delparty/{{ $party->id }}" 
+                                       class="btn btn-danger btn-sm" 
+                                       onclick="return confirm('Are you sure you want to delete this party?')">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @else
+            <div class="alert alert-warning text-center mt-4">
+                No parties available. Please add a new party.
+            </div>
+        @endif
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+@endsection

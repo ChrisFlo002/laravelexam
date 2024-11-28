@@ -39,9 +39,9 @@
             <td>{{ $party->id }}</td>
             <td>{{ $party->name_party }}</td>
             <td>
-                <a href="/edparty/{{$party->id}}">Edit</a>
+                <a href="/admin/edparty/{{$party->id}}">Edit</a>
                 <a
-                href="/delparty/{{$party->id}}"
+                href="/admin/delparty/{{$party->id}}"
                 onclick="return confirm('Are you sure you want to delete senator?')"
                 >Delete</a>
             </td>

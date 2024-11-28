@@ -46,7 +46,7 @@
 </head>
 <body>
     <h1> Edit party page</h1>
-    <form action="/edparty/{{$party->id}}" method="post">
+    <form action="/admin/edparty/{{$party->id}}" method="post">
         @csrf
         @method('PUT')
         <table>

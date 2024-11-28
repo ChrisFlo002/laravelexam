@@ -38,7 +38,7 @@
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="card shadow p-5" style="max-width: 500px; width: 100%;">
             <h2 class="text-center mb-4 text-uppercase text-primary">Insert New Elector</h2>
-            <form action="/postelector" method="post">
+            <form action="/admin/postelector" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label fw-bold">Name</label>

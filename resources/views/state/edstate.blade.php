@@ -47,7 +47,7 @@
 <body>
     <div class="container">
         <h1>Edit state page</h1>
-        <form method="POST" action="/edstate/{{$state->id}}" enctype="multipart/form-data">
+        <form method="POST" action="/admin/edstate/{{$state->id}}" enctype="multipart/form-data">
             @csrf
             @method("PUT")
             <table>

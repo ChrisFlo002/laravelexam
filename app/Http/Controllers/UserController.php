@@ -7,16 +7,17 @@ use App\Models\Party;
 use App\Models\State;
 use App\Models\Governor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Party;
+// use App\Models\Party;
 
 class UserController extends Controller
 {
     public function showdash(Request $request)
     {
-        return view('admin.dashboard');
+        $parties = Party::all();
+        return view('admin.dashboard', compact('parties'));
     }
     public function showAdminHome()
     {
@@ -123,7 +124,7 @@ class UserController extends Controller
                 'age' => $request->age
             ]);
         }
-        return redirect('/admin/dashboard')->with('status', 'User updated');
+        return redirect('/admin/admin/dashboard')->with('status', 'User updated');
     }
     public function delete(int $id)
     {

@@ -48,7 +48,7 @@
 <body>
 
     <h1>Create senator page</h1>
-    <form action="/postsenator" method="post">
+    <form action="/admin/postsenator" method="post">
         @csrf
         <label for="nom_senateur">Full name:</label>
         <input type="text" id="name" name="name" required>

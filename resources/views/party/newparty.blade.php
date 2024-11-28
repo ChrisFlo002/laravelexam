@@ -46,7 +46,7 @@
 </head>
 <body>
     <h1>Create party page</h1>
-    <form action="/postparty" method="post">
+    <form action="/admin/postparty" method="post">
         @csrf
         <table>
             <tr>

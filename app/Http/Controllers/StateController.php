@@ -49,7 +49,7 @@ class StateController extends Controller
       $flag = new Flag();
       $flag->path = $path;
       $state->flag()->save($flag);
-        return redirect('/state')->with('status', 'State added');
+        return redirect('/admin/state')->with('status', 'State added');
     }
 
     public function updateState(int $id){
@@ -86,12 +86,12 @@ class StateController extends Controller
 
 
 
-        return redirect("/detstate{$id}")->with('status', 'State updated');
+        return redirect("/admin/detstate{$id}")->with('status', 'State updated');
     }
     public function deleteState(int $id){
         $state = State::findOrfail($id);
         $state->delete();
-        return redirect('/state')->with('status', 'State deleted');
+        return redirect('/admin/state')->with('status', 'State deleted');
     }
     public function showStateDetails(int $pk){
         $state = State::findOrFail($pk);

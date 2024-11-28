@@ -47,7 +47,7 @@
 <body>
     <div class="container">
         <h1>Create a new state page</h1>
-        <form method="POST" action="/postState" enctype="multipart/form-data">
+        <form method="POST" action="/admin/postState" enctype="multipart/form-data">
             @csrf
             <table>
                 <tr>

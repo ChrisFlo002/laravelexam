@@ -49,7 +49,7 @@ Route::prefix('admin')->middleware(['auth','admin','role:admin'])->group(functio
     //states
     Route::get('/state', [StateController::class, 'showStateHome']);
     Route::get('/newstate', [StateController::class, 'showStateCreate']);
-    Route::get('/detstate{id}', [StateController::class, 'showStateDetails']);
+    Route::get('/detstate/{id}', [StateController::class, 'showStateDetails']);
     Route::post('/postState', [StateController::class, 'createState']);
     Route::get('/delstate/{id}', [StateController::class, 'deleteState']);
     Route::get('/edstate/{id}', [StateController::class, 'updateState']);

@@ -40,7 +40,7 @@ class SenatorController extends Controller
             'party_id'=> $request->party_id,
             'state_id'=> $request->state_id,
         ]);
-        return redirect('/senator')->with('status', 'Senator added');
+        return redirect('/admin/senator')->with('status', 'Senator added');
     }
     public function updateSenator(int $id){
         $senator = Senator::findOrfail($id);
@@ -57,11 +57,11 @@ class SenatorController extends Controller
             'age' => 'required|integer|min:18',
         ]);
         Senator::findOrfail($id)->update($req->all());
-        return redirect('/senator')->with('status', 'Senator updated');
+        return redirect('/admin/senator')->with('status', 'Senator updated');
     }
     public function deleteSenator(int $id){
         $senator = Senator::findOrfail($id);
         $senator->delete();
-        return redirect('/senator')->with('status', 'Senator deleted');
+        return redirect('/admin/senator')->with('status', 'Senator deleted');
     }
 }

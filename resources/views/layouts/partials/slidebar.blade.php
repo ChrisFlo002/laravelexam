@@ -16,10 +16,24 @@
         <div class="nav">
             <div class="sb-sidenav-menu-heading text-white"></div>
             <img src="{{ asset('images/flad_usa.png') }}" width="120 px", style="margin-left: 30px;" alt="">
-            <a class="nav-link text-white" href="{{ url('/partinfo') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-speedometer2"></i></div>
-                Dashboard
-            </a>
+            <li class="nav-item">
+                    <select id="partySelect" class="form-select bg-primary text-white" onchange="redirectToParty(this)">
+                    @if($parties->isEmpty())
+                        <p>No parties found.</p>
+                    @else
+                        @foreach ($parties as $party)
+                            <p>{{ $party->name_party }}</p>
+                        @endforeach
+                    @endif
+
+                    </select>
+                    <script>
+                        function redirectToParty(selectElement) {
+                            const partyId = selectElement.value;
+                            window.location.href = `/partinfo/${partyId}`;
+                        }
+                    </script>
+                </li>
 
             <a class="nav-link text-white" href="{{ url('admin/user') }}">
                 <div class="sb-nav-link-icon"><i class="bi bi-people"></i></div>
@@ -36,7 +50,7 @@
                 State
             </a>
 
-            <a class="nav-link text-white" href="{{ url('admin/parlementaire') }}">
+            <a class="nav-link text-white" href="{{ url('admin/parle') }}">
                 <div class="sb-nav-link-icon"><i class="bi bi-building"></i></div>
                 Parlementaire
             </a>
@@ -51,7 +65,7 @@
                 Party
             </a>
 
-            <div class="sb-sidenav-menu-heading text-white">Interface</div>
+            <!-- <div class="sb-sidenav-menu-heading text-white">Interface</div>
 
             <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseParty" aria-expanded="false" aria-controls="collapseParty">
                 <div class="sb-nav-link-icon"><i class="bi bi-columns-gap"></i></div>
@@ -106,10 +120,11 @@
             </a>
         </div>
     </div>
-    <div class="sb-sidenav-footer text-white">
+-->
+    <!-- <div class="sb-sidenav-footer text-white">
         <div class="small">Logged in as:</div>
         Start Bootstrap
-    </div>
+    </div> -->
 </nav> 
 </body>
 </html>

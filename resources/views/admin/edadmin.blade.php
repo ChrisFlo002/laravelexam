@@ -1,6 +1,6 @@
 
 <x-guest-layout>
-    <form method="POST" action="/eduser/{{$user->id}}" x-data="{ role: '{{ old('role') ?? ($user->role ?? 'admin') }}' }">
+    <form method="POST" action="/admin/eduser/{{$user->id}}" x-data="{ role: '{{ old('role') ?? ($user->role ?? 'admin') }}' }">
         @csrf
         @method('PUT')
 

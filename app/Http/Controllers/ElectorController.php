@@ -38,7 +38,7 @@ class ElectorController extends Controller
             'party_id'=> $request->party_id,
             'state_id'=> $request->state_id,
         ]);
-        return redirect('/elector')->with('status', 'Elector added');
+        return redirect('/admin/elector')->with('status', 'Elector added');
     }
     public function updateelector(int $id){
         $elector = Elector::findOrfail($id);
@@ -54,11 +54,11 @@ class ElectorController extends Controller
             'party_id' => 'required|integer',
         ]);
         Elector::findOrfail($id)->update($req->all());
-        return redirect('/elector')->with('status', 'Elector updated');
+        return redirect('/admin/elector')->with('status', 'Elector updated');
     }
     public function deleteelector(int $id){
         $elector = Elector::findOrfail($id);
         $elector->delete();
-        return redirect('/elector')->with('status', 'Elector deleted');
+        return redirect('/admin/elector')->with('status', 'Elector deleted');
     }
 }
