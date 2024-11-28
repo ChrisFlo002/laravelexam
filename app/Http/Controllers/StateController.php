@@ -86,7 +86,7 @@ class StateController extends Controller
 
 
 
-        return redirect("/detstate/{$id}")->with('status', 'State updated');
+        return redirect("/detstate{$id}")->with('status', 'State updated');
     }
     public function deleteState(int $id){
         $state = State::findOrfail($id);

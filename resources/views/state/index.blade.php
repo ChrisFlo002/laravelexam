@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,11 @@
         body {
             font-family: Arial, sans-serif;
         }
-        h1{
+
+        h1 {
             text-align: center;
         }
+
         table {
             width: 50%;
             margin: 0 auto;
@@ -28,38 +31,41 @@
         }
     </style>
 </head>
+
 <body>
     <h1>State Home</h1>
-        @if (count($states) > 0)
+    <form action="/newstate">
+        <button type="submit" style="align: center; background-color: blue; color:white;">Add State</button>
+    </form>
+    @if (count($states) > 0)
         <table>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>GPA/PIB</th>
+                <th>Population</th>
+                <th>Area</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($states as $state)
                 <tr>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>GPA/PIB</th>
-                    <th>Population</th>
-                    <th>Area</th>
-                    <th>Action</th>
+                    <td>{{ $state->code }}</td>
+                    <td>{{ $state->name }}</td>
+                    <td>{{ $state->pib }}</td>
+                    <td>{{ $state->population }}</td>
+                    <td>{{ $state->area }}</td>
+                    <td>
+                        <a href="/detstate{{ $state->id }}">Details</a>
+                        <a href="/edstate/{{ $state->id }}">Edit</a>
+                        <a href="/delstate/{{ $state->id }}"
+                            onclick="return confirm('Are you sure you want to delete state?')">Delete</a>
+                    </td>
                 </tr>
-                @foreach($states as $state)
-                    <tr>
-                        <td>{{ $state->code }}</td>
-                        <td>{{ $state->name }}</td>
-                        <td>{{ $state->pib }}</td>
-                        <td>{{ $state->population }}</td>
-                        <td>{{ $state->area }}</td>
-                        <td>
-                            <a href="/detstate/{{$state->id}}">Details</a>
-                            <a href="/edstate/{{$state->id}}">Edit</a>
-                            <a
-                            href="/delstate/{{$state->id}}"
-                            onclick="return confirm('Are you sure you want to delete state?')"
-                            >Delete</a>
-                        </td>
-                    </tr>
-                @endforeach
+            @endforeach
         </table>
-        @else
+    @else
         <p>No state</p>
-        @endif
+    @endif
 </body>
+
 </html>

@@ -41,7 +41,7 @@ Route::prefix('admin')->middleware(['auth','admin','role:admin'])->group(functio
     Route::get('/user',[UserController::class,'showAdminHome']);
     Route::get('/newuser',[UserController::class,'showuserCreate']);
     Route::get('/deluser/{id}',[UserController::class,'delete']);
-    Route::get('/detuser',[UserController::class,'showAdminDetails']);
+    Route::get('/detuser/{id}',[UserController::class,'showAdminDetails']);
     Route::post('/postuser',[UserController::class,'createUser']);
     Route::put('/eduser/{id}',[UserController::class,'update']);
     Route::get('/eduser/{id}',[UserController::class,'showUpdateUser']);

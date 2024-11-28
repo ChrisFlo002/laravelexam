@@ -14,8 +14,8 @@ class ParlementaireController extends Controller
         return view('parlementaire.index',['parlementaires'=>$parlementaires]);
     }
     public function showParleDetails(int $id){
-        $parle = Parlemntaire::findOrFail($id);
-        return view('parlementaire.detparlementaire',['parlementaire'=>$parle]);
+        $parle = Parlementaire::findOrFail($id);
+        return view('parlementaire.detparlementaire',['parle'=>$parle]);
     }
     public function showParlementaireCreate(){
         $states= State::all();
@@ -60,7 +60,7 @@ class ParlementaireController extends Controller
         return redirect('/parle')->with('status', 'Parlementaire updated');
     }
     public function deleteParlementaire(int $id){
-        $parle = Parlemntaire::findOrFail($id);
+        $parle = Parlementaire::findOrFail($id);
         $parle->delete();
         return redirect('/parle')->with('status', 'Parlementaire deleted');
     }

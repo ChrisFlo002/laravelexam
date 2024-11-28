@@ -26,7 +26,7 @@
     </style>
 </head>
 <body>
-    <h1>Party Home</h1>
+    <h1>Party Details</h1>
     @if (count($parties) > 0)
     <table>
         <tr>

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\support\Facades\Auth;
+use App\Models\Party;
+use App\Models\State;
 use App\Models\Elector;
 use App\Models\Senator;
-use App\Models\Parlementaire;
 use App\Models\Governor;
-use App\Models\State;
-use App\Models\Party;
+use Illuminate\Http\Request;
+use App\Models\Parlementaire;
+use Illuminate\Support\Facades\Auth;
 class GovernorController extends Controller
 {
     public function showdash(){

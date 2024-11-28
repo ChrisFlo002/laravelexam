@@ -26,40 +26,13 @@
     </style>
 </head>
 <body>
-    <h1>Senator Home</h1>
-    @if (count($senators) > 0)
-    <table>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Party</th>
-                <th>State</th>
-                <th>Recorded</th>
-                <th>Updated</th>
-                <th>Action</th>
-            </tr>
-            @foreach($senators as $senator)
-                <tr>
-                    <td>{{ $senator->id }}</td>
-                    <td>{{ $senator->name }}</td>
-                    <td>{{ $senator->age }}</td>
-                    <td>{{ $senator->gender }}</td>
-                    <td>{{ $senator->party->name }}</td>
-                    <td>{{ $senator->state->name }}</td>
-                    <td>{{ $senator->created_at }}</td>
-                    <td>{{ $senator->updated_at }}</td>
-                    <td>
-                        <a href="/edsenator/{{$senator->id}}">Edit</a>
-                        <a
-                        href="/delsenator/{{$senator->id}}"
-                        onclick="return confirm('Are you sure you want to delete senator?')"
-                        >Delete</a>
-                    </td>
-                </tr>
-            @endforeach
-    </table>
-    @endif
+    <h1>Senator Details</h1>
+    <h4>{{ $senator->created_at }}</h4>
+    <h4>{{ $senator->updated_at }}</h4>
+    <h4>{{ $senator->name }}</h4>
+    <h4>{{ $senator->gender }}</h4>
+    <h4>{{ $senator->age }}</h4>
+    <h4>{{ $senator->party->name_party }}</h4>
+    <h4>{{ $senator->state->name }}</h4>
 </body>
 </html>
