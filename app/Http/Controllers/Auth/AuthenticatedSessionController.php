@@ -28,14 +28,13 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
         //roles management
-        if($request->user()->role == 'admin'){
-            return redirect()->intended('admin/dashboard');
-        }elseif($request->user()->role == 'governor'){
-            return redirect()->intended('governor/dashboard');
-        }else{
+        if ($request->user()->role == 'admin') {
+            return redirect()->intended('admin/admin/dashboard');
+        } elseif ($request->user()->role == 'governor') {
+            return redirect()->intended('/governor/dashboard');
+        } else {
             return redirect()->intended(route('login', absolute: false));
         }
-
     }
 
     /**

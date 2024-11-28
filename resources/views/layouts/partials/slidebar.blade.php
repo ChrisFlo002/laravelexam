@@ -72,6 +72,19 @@
                     Party
                 </a>
 
+                <a class="nav-link text-white cursor-pointer" href="">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-dropdown-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            <i class="fas fa-sign-out-alt me-2 w-0"></i>
+                            <span class="text-white">
+                                {{ __('Log Out') }}</span>
+                        </x-dropdown-link>
+                    </form>
+                </a>
                 <!-- <div class="sb-sidenav-menu-heading text-white">Interface</div>
 
             <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseParty" aria-expanded="false" aria-controls="collapseParty">
