@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Senator;
 use App\Models\Governor;
 use App\Models\Elector;
+use App\Models\Parlementaire;
 
 class Party extends Model
 {
@@ -20,5 +21,8 @@ class Party extends Model
     }
     public function electors(){
         return $this->hasMany(Elector::class);
+    }
+    public function parlementaires(){
+        return $this->hasMany(Parlementaire::class);
     }
 }

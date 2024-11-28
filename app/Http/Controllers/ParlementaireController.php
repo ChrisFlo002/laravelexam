@@ -13,10 +13,14 @@ class ParlementaireController extends Controller
         $parlementaires = Parlementaire::all();
         return view('parlementaire.index',['parlementaires'=>$parlementaires]);
     }
+    public function showParleDetails(int $id){
+        $parle = Parlemntaire::findOrFail($id);
+        return view('parlementaire.detparlementaire',['parlementaire'=>$parle]);
+    }
     public function showParlementaireCreate(){
         $states= State::all();
         $parties = Party::all();
-        return view('parlementaire.newparlementiare',['states'=>$states,'parties'=>$parties]);
+        return view('parlementaire.newparlementaire',['states'=>$states,'parties'=>$parties]);
     }
     public function showParlementaireDelete(){
         return view('parlementaire.deletesenator');
@@ -36,13 +40,13 @@ class ParlementaireController extends Controller
             'party_id'=> $request->party_id,
             'state_id'=> $request->state_id,
         ]);
-        return redirect('/senator')->with('status', 'Senator added');
+        return redirect('/parle')->with('status', 'Parlementaire added');
     }
     public function updateParlementaire(int $id){
-        $senator = Senator::findOrfail($id);
+        $parle = Parlementaire::findOrfail($id);
         $states= State::all();
         $parties = Party::all();
-        return view('parlementaire.edparlementaire',['states'=>$states,'parties'=>$parties,'senator'=>$senator]);
+        return view('parlementaire.edparlementaire',['states'=>$states,'parties'=>$parties,'parle'=>$parle]);
     }
     public function update(Request $req, int $id){
         $req->validate([
@@ -52,12 +56,12 @@ class ParlementaireController extends Controller
             'party_id' => 'required|integer',
             'age' => 'required|integer|min:18',
         ]);
-        Senator::findOrfail($id)->update($req->all());
-        return redirect('/senator')->with('status', 'Senator updated');
+        Parlementaire::findOrfail($id)->update($req->all());
+        return redirect('/parle')->with('status', 'Parlementaire updated');
     }
     public function deleteParlementaire(int $id){
-        $senator = Senator::findOrfail($id);
-        $senator->delete();
-        return redirect('/senator')->with('status', 'Senator deleted');
+        $parle = Parlemntaire::findOrFail($id);
+        $parle->delete();
+        return redirect('/parle')->with('status', 'Parlementaire deleted');
     }
 }
