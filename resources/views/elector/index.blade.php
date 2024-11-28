@@ -1,3 +1,7 @@
+@extends('layouts.partials.dashboard')
+@section('content')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +11,12 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+            height: 100vh; /* Hauteur de la fenêtre */
+            margin-top: 20px;
+            background-color: #f4f4f4
         }
         h1{
             text-align: center;

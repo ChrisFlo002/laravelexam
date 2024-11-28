@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illumunate\support\Facades\Auth;
+use Illuminate\support\Facades\Auth;
 use App\Models\Elector;
 use App\Models\Senator;
 use App\Models\Parlementaire;

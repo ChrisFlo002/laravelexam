@@ -13,42 +13,42 @@
     <!-- Sidebar -->
     <nav class="bg-primary text-white p-3 sidebar" style="height: 100vh;">
       <div class="text-center mb-3">
-        <img src="{{ asset('images/flad_usa.png') }}" style="width: 100px;">
+        <img src="{{ asset('images/flad_usa.png') }}" style="width: 120px; margin-bottom: 10px;">
         <h5>USA Elections</h5>
       </div>
       <ul class="nav flex-column">
-        <li class="nav-item" style="margin-bottom: 10px;">
+        <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;">
             <a href="/state" class="nav-link text-white d-flex align-items-center">
               <i class="fas fa-map me-2"></i>State
             </a>
           </li>
-          <li class="nav-item" style="margin-bottom: 10px;" >
+          <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;" >
             <a href="/party" class="nav-link text-white d-flex align-items-center">
               <i class="fas fa-map me-2"></i>Party
             </a>
           </li>
-        <li class="nav-item" style="margin-bottom: 10px;">
+        <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;">
           <a href="/governor" class="nav-link text-white d-flex align-items-center" >
             <i class="fas fa-user-tie me-2"></i>Governor
           </a>
         </li>
-        <li class="nav-item" style="margin-bottom: 10px;">
+        <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;">
           <a href="/elector" class="nav-link text-white d-flex align-items-center" >
             <i class="fas fa-users me-2"></i>Elector
           </a>
         </li>
 
-        <li class="nav-item" style="margin-bottom: 10px;">
+        <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;">
           <a href="/parle" class="nav-link text-white d-flex align-items-center">
             <i class="fas fa-file-alt me-2"></i>Parlementaire
           </a>
         </li>
-        <li class="nav-item" style="margin-bottom: 10px;">
+        <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;">
           <a href="/senator" class="nav-link text-white d-flex align-items-center">
             <i class="fas fa-chart-bar me-2"></i>Senator
           </a>
         </li>
-        <li class="nav-item" style="margin-bottom: 10px;">
+        <li class="nav-item" style="margin-bottom: 10px; font-family: Arial, sans-serif; font-size: 20px;">
           <a href="/flag" class="nav-link text-white d-flex align-items-center">
             <i class="fas fa-poll me-2"></i>Flags
           </a>
@@ -56,7 +56,7 @@
         <li class="nav-item">
             <form method="POST" action="/logout">
                  @csrf
-                <button type="submit" class="nav-link text-white d-flex align-items-center">
+                <button type="submit" class="nav-link text-white d-flex align-items-center" style="font-family: Arial, sans-serif; font-size: 20px; margin-top: 30px;">
                     <i class="fas fa-sign-out-alt me-2"></i>Disconnect
                 </button>
             </form>
