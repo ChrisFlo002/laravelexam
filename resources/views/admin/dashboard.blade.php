@@ -28,8 +28,8 @@
             </a>
           </li>
         <li class="nav-item" style="margin-bottom: 10px;">
-          <a href="/governor" class="nav-link text-white d-flex align-items-center" >
-            <i class="fas fa-user-tie me-2"></i>Governor
+          <a href="/user" class="nav-link text-white d-flex align-items-center" >
+            <i class="fas fa-user-tie me-2"></i>Users
           </a>
         </li>
         <li class="nav-item" style="margin-bottom: 10px;">

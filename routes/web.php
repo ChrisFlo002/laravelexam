@@ -98,10 +98,10 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::put('/edelector/{id}', [ElectorController::class, 'update']);
 });
 Route::middleware(['auth','governor','role:governor'])->group(function(){
-    Route::get('governor/dashboard',[Governor::class, 'showdash']);
-    Route::get('detgovernor',[Governor::class, 'showGovernorDetails']);
-    Route::get('governor/electors',[Governor::class, 'showGovernorElectors']);
-    Route::get('governor/senators',[Governor::class, 'showGovernorSenators']);
-    Route::get('governor/parlementaire',[Governor::class, 'showGovernorParlementaire']);
+    Route::get('governor/dashboard',[GovernorController::class, 'showdash']);
+    Route::get('detgovernor',[GovernorController::class, 'showGovernorDetails']);
+    Route::get('governor/electors',[GovernorController::class, 'showGovernorElectors']);
+    Route::get('governor/senators',[GovernorController::class, 'showGovernorSenators']);
+    Route::get('governor/parlementaire',[GovernorController::class, 'showGovernorParlementaire']);
 });
 

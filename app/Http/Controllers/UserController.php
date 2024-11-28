@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Party;
 use App\Models\Governor;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -92,7 +94,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->age = $request->age;
             //find the governor where user_id corresponds to user->id
-            $governor = Governor::where('user_id',$user->id)->get();
+            $governor = Governor::where('user_id','=',$user->id)->get();
             $governor->state_id = $request->state_id;
             $governor->party_id = $request->party_id;
             $governor->update();
@@ -111,7 +113,7 @@ class UserController extends Controller
     }
     public function showInfoParti(int $id){
         $party = Party::with(['electors', 'senators', 'governors', 'parlementaires'])
-        ->find($partyId);
+        ->find($id);
 
         // Access the relationships
         $electors = $party->electors;
