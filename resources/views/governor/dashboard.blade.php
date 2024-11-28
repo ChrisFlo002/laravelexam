@@ -20,29 +20,24 @@
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item" style="margin-bottom: 10px;">
-                    <a href="detgovernor" class="nav-link text-white d-flex align-items-center">
+                    <a href="/detgovernor" class="nav-link text-white d-flex align-items-center">
                         <i class="fas fa-map me-2"></i>Details
                     </a>
                 </li>
                 <li class="nav-item" style="margin-bottom: 10px;">
-                    <a href="/showGovernorElectors{{Governor::where('user_id','=',Auth::user()->id)->get()->state_id}}" class="nav-link text-white d-flex align-items-center">
+                    <a href="/electors" class="nav-link text-white d-flex align-items-center">
                         <i class="fas fa-users me-2"></i>Electors
                     </a>
                 </li>
 
                 <li class="nav-item" style="margin-bottom: 10px;">
-                    <a href="/parle" class="nav-link text-white d-flex align-items-center">
+                    <a href="/parlementaire" class="nav-link text-white d-flex align-items-center">
                         <i class="fas fa-file-alt me-2"></i>Parlementaire
                     </a>
                 </li>
                 <li class="nav-item" style="margin-bottom: 10px;">
-                    <a href="/senator" class="nav-link text-white d-flex align-items-center">
+                    <a href="/senators" class="nav-link text-white d-flex align-items-center">
                         <i class="fas fa-chart-bar me-2"></i>Senator
-                    </a>
-                </li>
-                <li class="nav-item" style="margin-bottom: 10px;">
-                    <a href="/flag" class="nav-link text-white d-flex align-items-center">
-                        <i class="fas fa-poll me-2"></i>Flags
                     </a>
                 </li>
                 <li class="nav-item">

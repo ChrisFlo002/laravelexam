@@ -14,7 +14,8 @@ class UserController extends Controller
 {
     public function showdash(Request $request)
     {
-        return view('admin.dashboard');
+        $parties = Party::all();
+        return view('admin.dashboard', compact('parties'));
     }
     public function showAdminHome()
     {

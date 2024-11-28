@@ -26,39 +26,15 @@
     </style>
 </head>
 <body>
-    <h1>Governors Home</h1>
-    @if (count($governors) > 0)
-    <table>
-            <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Gender</th>
-                <th>Party</th>
-                <th>State</th>
-                <th>Recorded</th>
-                <th>Updated</th>
-                <th>Action</th>
-            </tr>
-            @foreach($governors as $governor)
-                <tr>
-                    <td>{{ $governor->id }}</td>
-                    <td>{{ $governor->name_governor }}</td>
-                    <td>{{ $governor->gender }}</td>
-                    <td>{{ $governor->party->name }}</td>
-                    <td>{{ $governor->state->name }}</td>
-                    <td>{{ $governor->created_at }}</td>
-                    <td>{{ $governor->updated_at }}</td>
-                    <td>
-                        <a href="/edgovernor/{{$governor->id}}">Edit</a>
-                        <a
-                            href="/delgovernor/{{$governor->id}}"
-                            onclick="return confirm('Are you sure you want to delete governor?')"
-                        >Delete
-                        </a>
-                    </td>
-                </tr>
-    @endforeach
-    </table>
-    @endif
+    <h1>Governor Details</h1>
+   
+
+    <h4>{{ $governor->created_at }}</h4>
+    <h4>{{ $governor->updated_at }}</h4>
+    <h4>{{ $user->name }}</h4>
+    <h4>{{ $user->age }}</h4>
+    <h4>{{ $governor->party->name_party }}</h4>
+    <h4>{{ $governor->state->name }}</h4>
+
 </body>
 </html>
