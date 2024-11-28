@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,21 +11,22 @@
 
 
 </head>
+
 <body>
-<nav class="sb-sidenav accordion sb-sidenav-dark" style="background-color: #3C3B6E;" id="sidenavAccordion">
-    <div class="sb-sidenav-menu">
-        <div class="nav">
-            <div class="sb-sidenav-menu-heading text-white"></div>
-            <img src="{{ asset('images/flad_usa.png') }}" width="120 px", style="margin-left: 30px;" alt="">
-            <li class="nav-item">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" style="background-color: #3C3B6E;" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading text-white"></div>
+                <img src="{{ asset('images/flad_usa.png') }}" width="120 px", style="margin-left: 30px;" alt="">
+                {{-- <li class="nav-item">
                     <select id="partySelect" class="form-select bg-primary text-white" onchange="redirectToParty(this)">
-                    @if($parties->isEmpty())
-                        <p>No parties found.</p>
-                    @else
-                        @foreach ($parties as $party)
-                            <p>{{ $party->name_party }}</p>
-                        @endforeach
-                    @endif
+                        @if ($parties->isEmpty())
+                            <p>No parties found.</p>
+                        @else
+                            @foreach ($parties as $party)
+                                <p>{{ $party->name_party }}</p>
+                            @endforeach
+                        @endif
 
                     </select>
                     <script>
@@ -33,39 +35,44 @@
                             window.location.href = `/partinfo/${partyId}`;
                         }
                     </script>
-                </li>
+                </li> --}}
 
-            <a class="nav-link text-white" href="{{ url('admin/user') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-people"></i></div>
-                Users
-            </a>
+                <a class="nav-link text-white" href="{{ url('admin/admin/dashboard') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-people"></i></div>
+                    Dashboard
+                </a>
 
-            <a class="nav-link text-white" href="{{ url('admin/elector') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-person-check"></i></div>
-                Elector
-            </a>
+                <a class="nav-link text-white" href="{{ url('admin/user') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-people"></i></div>
+                    Users
+                </a>
 
-            <a class="nav-link text-white" href="{{ url('admin/state') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-globe"></i></div>
-                State
-            </a>
+                <a class="nav-link text-white" href="{{ url('admin/elector') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-person-check"></i></div>
+                    Elector
+                </a>
 
-            <a class="nav-link text-white" href="{{ url('admin/parle') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-building"></i></div>
-                Parlementaire
-            </a>
+                <a class="nav-link text-white" href="{{ url('admin/state') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-globe"></i></div>
+                    State
+                </a>
 
-            <a class="nav-link text-white" href="{{ url('admin/senator') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-person-badge"></i></div>
-                Senator
-            </a>
+                <a class="nav-link text-white" href="{{ url('admin/parle') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-building"></i></div>
+                    Parlementaire
+                </a>
 
-            <a class="nav-link text-white" href="{{ url('admin/party') }}">
-                <div class="sb-nav-link-icon"><i class="bi bi-flag"></i></div>
-                Party
-            </a>
+                <a class="nav-link text-white" href="{{ url('admin/senator') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-person-badge"></i></div>
+                    Senator
+                </a>
 
-            <!-- <div class="sb-sidenav-menu-heading text-white">Interface</div>
+                <a class="nav-link text-white" href="{{ url('admin/party') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-flag"></i></div>
+                    Party
+                </a>
+
+                <!-- <div class="sb-sidenav-menu-heading text-white">Interface</div>
 
             <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse" data-bs-target="#collapseParty" aria-expanded="false" aria-controls="collapseParty">
                 <div class="sb-nav-link-icon"><i class="bi bi-columns-gap"></i></div>
@@ -121,11 +128,11 @@
         </div>
     </div>
 -->
-    <!-- <div class="sb-sidenav-footer text-white">
+                <!-- <div class="sb-sidenav-footer text-white">
         <div class="small">Logged in as:</div>
         Start Bootstrap
     </div> -->
-</nav> 
+    </nav>
 </body>
-</html>
 
+</html>
