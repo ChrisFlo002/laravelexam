@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
         body {
             font-family: Arial, sans-serif;
         }
-        h1{
+
+        h1 {
             text-align: center;
         }
+
         table {
             width: 30%;
             margin: 0 auto;
@@ -25,29 +28,32 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Party Home</h1>
+    <form action="/newparty">
+        <button type="submit" style="align: center; background-color: blue; color:white;">Add Party</button>
+    </form>
     @if (count($parties) > 0)
-    <table>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Action</th>
-        </tr>
-        @foreach($parties as $party)
-        <tr>
-            <td>{{ $party->id }}</td>
-            <td>{{ $party->name_party }}</td>
-            <td>
-                <a href="/edparty/{{$party->id}}">Edit</a>
-                <a
-                href="/delparty/{{$party->id}}"
-                onclick="return confirm('Are you sure you want to delete senator?')"
-                >Delete</a>
-            </td>
-        </tr>
-    @endforeach
-    </table>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($parties as $party)
+                <tr>
+                    <td>{{ $party->id }}</td>
+                    <td>{{ $party->name_party }}</td>
+                    <td>
+                        <a href="/edparty/{{ $party->id }}">Edit</a>
+                        <a href="/delparty/{{ $party->id }}"
+                            onclick="return confirm('Are you sure you want to delete senator?')">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
     @endif
 </body>
+
 </html>

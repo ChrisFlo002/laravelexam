@@ -27,6 +27,9 @@
 </head>
 <body>
     <h1>Senator Home</h1>
+    <form action="/newsenator">
+        <button type="submit" style="align: center; background-color: blue; color:white;">Add Senator</button>
+    </form>
     @if (count($senators) > 0)
     <table>
             <tr>
@@ -38,7 +41,7 @@
                 <th>State</th>
                 <th>Recorded</th>
                 <th>Updated</th>
-                <th>Action</th>
+                <th colspan="3">Action</th>
             </tr>
             @foreach($senators as $senator)
                 <tr>
@@ -51,7 +54,12 @@
                     <td>{{ $senator->created_at }}</td>
                     <td>{{ $senator->updated_at }}</td>
                     <td>
+                        <a href="/detsenator/{{$senator->id}}">Details</a>
+                    </td>
+                    <td>
                         <a href="/edsenator/{{$senator->id}}">Edit</a>
+                    </td>
+                    <td>
                         <a
                         href="/delsenator/{{$senator->id}}"
                         onclick="return confirm('Are you sure you want to delete senator?')"

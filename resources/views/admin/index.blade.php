@@ -31,6 +31,9 @@
 
 <body>
     <h1>User Home</h1>
+    <form action="/newuser">
+        <button type="submit">Add User</button>
+    </form>
     @if (count($users) > 0)
         <table>
             <tr>
@@ -51,7 +54,7 @@
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
                     <td>
-                        <a href="/detuser">Details</a>
+                        <a href="/detuser/{{ $user->id }}">Details</a>
                     </td>
                     <td>
                         <a href="/eduser/{{ $user->id }}">Edit</a>

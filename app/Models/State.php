@@ -7,6 +7,7 @@ use App\Models\Senator;
 use App\Models\Parlementaire;
 use App\Models\Elector;
 use App\Models\Flag;
+use App\Models\Governor;
 
 class State extends Model
 {
@@ -22,6 +23,9 @@ class State extends Model
     }
     public function parlementaires(){
         return $this->hasMany(Parlementaire::class);
+    }
+    public function governors(){
+        return $this->hasMany(Governor::class);
     }
     public function electors(){
         return $this->hasMany(Elector::class);

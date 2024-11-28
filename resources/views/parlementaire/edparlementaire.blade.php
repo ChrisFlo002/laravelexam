@@ -45,12 +45,12 @@
 </head>
 <body>
 
-    <h1>Edit senator page</h1>
-    <form action="/edsenator/{{$senator->id}}" method="post">
+    <h1>Edit parliament page</h1>
+    <form action="/edparle/{{$parle->id}}" method="post">
         @csrf
         @method("PUT")
         <label for="nom_senateur">Full name:</label>
-        <input type="text" id="name" name="name" required value={{$senator->name}}>
+        <input type="text" id="name" name="name" required value={{$parle->name}}>
         @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -66,7 +66,7 @@
         @enderror
 
         <label for="age_senateur">Age:</label>
-        <input type="number" id="age" name="age" value={{$senator->age}}>
+        <input type="number" id="age" name="age" value={{$parle->age}}>
         @error('age')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror

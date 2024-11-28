@@ -41,7 +41,7 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::get('/user',[UserController::class,'showAdminHome']);
     Route::get('/newuser',[UserController::class,'showuserCreate']);
     Route::get('/deluser/{id}',[UserController::class,'delete']);
-    Route::get('/detuser',[UserController::class,'showAdminDetails']);
+    Route::get('/detuser/{id}',[UserController::class,'showAdminDetails']);
     Route::post('/postuser',[UserController::class,'createUser']);
     Route::put('/eduser/{id}',[UserController::class,'update']);
     Route::get('/eduser/{id}',[UserController::class,'showUpdateUser']);
@@ -97,11 +97,11 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::get('/edelector/{id}', [ElectorController::class, 'updateelector']);
     Route::put('/edelector/{id}', [ElectorController::class, 'update']);
 });
-Route::middleware(['auth','governor','role:governor'])->group(function(){
-    Route::get('governor/dashboard',[GovernorController::class, 'showdash']);
-    Route::get('detgovernor',[GovernorController::class, 'showGovernorDetails']);
-    Route::get('governor/electors',[GovernorController::class, 'showGovernorElectors']);
-    Route::get('governor/senators',[GovernorController::class, 'showGovernorSenators']);
-    Route::get('governor/parlementaire',[GovernorController::class, 'showGovernorParlementaire']);
+Route::prefix('governor')->middleware(['auth','governor','role:governor'])->group(function(){
+    Route::get('/dashboard',[GovernorController::class, 'showdash']);
+    Route::get('/detgovernor',[GovernorController::class, 'showGovernorDetails']);
+    Route::get('/electors{id}',[GovernorController::class, 'showGovernorElectors']);
+    Route::get('/senators{id}',[GovernorController::class, 'showGovernorSenators']);
+    Route::get('/parlementaire{id}',[GovernorController::class, 'showGovernorParlementaire']);
 });
 
