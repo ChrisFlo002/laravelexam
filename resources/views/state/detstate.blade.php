@@ -17,7 +17,7 @@
         <!-- State Details Card -->
         <div class="card shadow-sm mx-auto" style="max-width: 600px;">
             <div class="card-body">
-                <h5 class="card-title text-center text-uppercase mb-4">{{ $state->name }}</h5>
+                <h5 class="card-title text-center text-uppercase mb-4">{{ $state->name }} ({{ $state->code }})</h5>
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Created At:</strong> {{ $state->created_at }}</li>
