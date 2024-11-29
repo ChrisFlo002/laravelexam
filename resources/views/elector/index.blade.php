@@ -21,6 +21,16 @@
             </form>
         </div>
 
+        <form action="/search" method="GET" class="mb-4">
+            <div class="flex gap-2">
+                <input type="text" name="search" placeholder="Search by name..." value="{{ request('search') }}"
+                    class="border rounded px-4 py-2">
+                <button type="submit" class="bg-blue-100 text-black px-4 py-2 rounded">
+                    Search
+                </button>
+            </div>
+        </form>
+
         <!-- Electors Table -->
         @if (count($electors) > 0)
             <div class="table-responsive">
@@ -48,16 +58,17 @@
                                 <td>{{ $elector->created_at }}</td>
                                 <td>{{ $elector->updated_at }}</td>
                                 <td>
-                                    <a href="/detelector/{{ $elector->id }}" class="btn btn-info btn-sm text-white">Details</a>
+                                    <a href="/detelector/{{ $elector->id }}"
+                                        class="btn btn-info btn-sm text-white">Details</a>
                                 </td>
                                 <td>
-                                    <a href="/edelector/{{ $elector->id }}" class="btn btn-warning btn-sm text-white">Edit</a>
+                                    <a href="/edelector/{{ $elector->id }}"
+                                        class="btn btn-warning btn-sm text-white">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="/delelector/{{ $elector->id }}" 
-                                       class="btn btn-danger btn-sm" 
-                                       onclick="return confirm('Are you sure you want to delete this elector?')">
-                                       Delete
+                                    <a href="/delelector/{{ $elector->id }}" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure you want to delete this elector?')">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>
@@ -68,7 +79,7 @@
         @else
             <!-- No Data Message -->
             <div class="alert alert-warning text-center">
-                No electors found. Please add a new elector.
+                No electors found.
             </div>
         @endif
     </div>

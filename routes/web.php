@@ -39,6 +39,10 @@ Route::middleware(['auth', 'admin', 'role:admin'])->group(function () {
     //user
     // web.php or routes/web.php
     Route::get('/search', [UserController::class, 'search']);
+
+    Route::get('/search', [UserController::class, 'search']);
+    Route::get('/search', [UserController::class, 'search']);
+    Route::get('/search', [UserController::class, 'search']);
     Route::get('admin/dashboard', [UserController::class, 'showdash']);
     Route::get('/user', [UserController::class, 'showAdminHome']);
     Route::get('/newuser', [UserController::class, 'showuserCreate']);
@@ -92,6 +96,7 @@ Route::middleware(['auth', 'admin', 'role:admin'])->group(function () {
     Route::put('/edparle/{id}', [ParlementaireController::class, 'update']);
     //elector
     Route::get('/elector', [ElectorController::class, 'showElectorHome']);
+    Route::get('/search', [ElectorController::class, 'search']);
     Route::get('/newElector', [ElectorController::class, 'showElectorCreate']);
     Route::post('/postelector', [ElectorController::class, 'createelector']);
     Route::get('/delelector/{id}', [ElectorController::class, 'deleteelector']);
