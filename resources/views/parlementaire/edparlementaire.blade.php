@@ -1,98 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Senateur Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        h1{
-            text-align: center;
-        }
-        form {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Parliament</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light">
 
-    <h1>Edit parliament page</h1>
-    <form action="/edparle/{{$parle->id}}" method="post">
-        @csrf
-        @method("PUT")
-        <label for="nom_senateur">Full name:</label>
-        <input type="text" id="name" name="name" required value={{$parle->name}}>
-        @error('name')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+    <div class="container my-5">
+        <!-- Page Header -->
+        <h1 class="text-center text-primary mb-4">Edit Parliament Member</h1>
+        
+        <!-- Edit Form -->
+        <form action="/edparle/{{$parle->id}}" method="post" class="bg-white p-4 rounded shadow-sm">
+            @csrf
+            @method("PUT")
+            
+            <!-- Full Name -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required value="{{ $parle->name }}">
+                @error('name')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <label for="genre_senateur">Gender:</label>
-        <select id="gender" name="gender" required >
+            <!-- Gender -->
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender:</label>
+                <select id="gender" name="gender" class="form-select" required>
+                    <option value="Male" {{ $parle->gender === 'Male' ? 'selected' : '' }}>Male</option>
+                    <option value="Female" {{ $parle->gender === 'Female' ? 'selected' : '' }}>Female</option>
+                </select>
+                @error('gender')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
 
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        @error('gender')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+            <!-- Age -->
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" id="age" name="age" class="form-control" value="{{ $parle->age }}">
+                @error('age')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <label for="age_senateur">Age:</label>
-        <input type="number" id="age" name="age" value={{$parle->age}}>
-        @error('age')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+            <!-- State -->
+            <div class="mb-3">
+                <label for="state_id" class="form-label">State:</label>
+                <select id="state_id" name="state_id" class="form-select">
+                    @foreach ($states as $state)
+                        <option value="{{ $state->id }}" {{ $parle->state_id === $state->id ? 'selected' : '' }}>
+                            {{ $state->name }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('state_id')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <label for="id_etat">State:</label>
-       <select id="state_id" name="state_id">
-        @foreach ($states as $state)
-            <option value="{{ $state->id }}">{{ $state->name }}</option>
-        @endforeach
-       </select>
-       @error('state_id')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+            <!-- Party -->
+            <div class="mb-3">
+                <label for="party_id" class="form-label">Party:</label>
+                <select id="party_id" name="party_id" class="form-select">
+                    @foreach ($parties as $party)
+                        <option value="{{ $party->id }}" {{ $parle->party_id === $party->id ? 'selected' : '' }}>
+                            {{ $party->name_party }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('party_id')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
 
-        <label for="id_parti">Party:</label>
-        <select id="party_id" name="party_id" >
-            @foreach ($parties as $party)
-                <option value="{{ $party->id }}">{{ $party->name_party}}</option>
-            @endforeach
-        </select>
-        @error('party_id')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+        </form>
+    </div>
 
-        <button type="submit">Submit</button>
-        <button type="reset">Cancel</button>
-    </form>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

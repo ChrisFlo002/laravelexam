@@ -3,73 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Party Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        h1{
-            text-align: center;
-        }
-        form {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <title>Create Party</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Create party page</h1>
-    <form action="/postparty" method="post">
-        @csrf
-        <table>
-            <tr>
-                <td>
-                    <label for="nom_senateur">Name:</label>
-                </td>
-                <td>
-                    <input type="text" id="name_party" name="name_party">
-                    @error('name_party')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="submit">Submit</button>
-                </td>
-                <td>
-                    <button type="reset">Cancel</button>
-                </td>
-            </tr>
+<body class="bg-light">
 
-    </table>
-    </form>
+    <div class="container my-5">
+        <!-- Page Header -->
+        <h1 class="text-center text-primary mb-4">Create Party</h1>
+
+        <!-- Create Party Form -->
+        <form action="/postparty" method="post" class="bg-white p-4 rounded shadow-sm">
+            @csrf
+
+            <!-- Party Name -->
+            <div class="mb-3">
+                <label for="name_party" class="form-label">Party Name:</label>
+                <input type="text" id="name_party" name="name_party" class="form-control" placeholder="Enter party name" required>
+                @error('name_party')
+                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

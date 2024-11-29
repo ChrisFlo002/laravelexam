@@ -4,43 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presidential elector Home</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        table {
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-    </style>
+    <title>Elector Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <h1>Electors Details</h1>
+<body class="bg-light">
 
+    <div class="container my-5">
+        <!-- Page Header -->
+        <h1 class="text-center text-primary mb-4">Elector Details</h1>
 
-    <h4>{{ $elector->created_at }}</h4>
-    <h4>{{ $elector->updated_at }}</h4>
-    <h4>{{ $elector->name }}</h4>
-    <h4>{{ $elector->gender }}</h4>
-    <h4>{{ $elector->age }}</h4>
-    <h4>{{ $elector->party->name_party }}</h4>
-    <h4>{{ $elector->state->name }}</h4>
+        <!-- Details Card -->
+        <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+                <h5 class="card-title text-center text-uppercase mb-4">{{ $elector->name }}</h5>
 
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Created At:</strong> {{ $elector->created_at }}</li>
+                    <li class="list-group-item"><strong>Last Updated:</strong> {{ $elector->updated_at }}</li>
+                    <li class="list-group-item"><strong>Gender:</strong> {{ $elector->gender }}</li>
+                    <li class="list-group-item"><strong>Age:</strong> {{ $elector->age }}</li>
+                    <li class="list-group-item"><strong>Party:</strong> {{ $elector->party->name_party }}</li>
+                    <li class="list-group-item"><strong>State:</strong> {{ $elector->state->name }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

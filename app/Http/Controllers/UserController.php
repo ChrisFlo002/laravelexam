@@ -77,10 +77,10 @@ class UserController extends Controller
         $parties = Party::all();
         $governor = Governor::where('user_id', '=', $id)->get();
 
-        return view('admin.edadmin', ['user' => $user, 'states' => $states, 'parties' => $parties,'governor'=>$governor]);
+        return view('admin.edadmin', ['user' => $user, 'states' => $states, 'parties' => $parties, 'governor' => $governor]);
     }
     public function update(Request $request, int $id)
-    { 
+    {
         $request->validate([
             'name' => ['required', 'min:3', 'max:50'],
             'role' => ['required'],
@@ -107,7 +107,7 @@ class UserController extends Controller
         } else {
             // Use first() instead of get() to get a single model instance
             $governor = Governor::where('user_id', $user->id)->first();
-            
+
             if ($governor) {
                 $governor->update([
                     'state_id' => $request->state_id,
@@ -145,5 +145,20 @@ class UserController extends Controller
         $governors = $party->governors;
         $parlementaires = $party->parlementaires;
         return view('admin.electorForm', ['electors' => $electors, 'senators' => $senators, 'governors' => $governors, 'parlementaires' => $parlementaires]);
+    }
+
+    // app/Http/Controllers/UserController.php
+    public function search(Request $request)
+    {
+        $query = User::query();
+
+        if ($request->has('search')) {
+            $search = $request->get('search');
+            $query->where('name', 'LIKE', "%{$search}%");
+        }
+
+        $users = $query->get();
+
+        return view('admin.index', ['users' => $users]);
     }
 }

@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 Route::middleware(['auth', 'admin', 'role:admin'])->group(function () {
     //user
+    // web.php or routes/web.php
+    Route::get('/search', [UserController::class, 'search']);
     Route::get('admin/dashboard', [UserController::class, 'showdash']);
     Route::get('/user', [UserController::class, 'showAdminHome']);
     Route::get('/newuser', [UserController::class, 'showuserCreate']);
