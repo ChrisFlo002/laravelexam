@@ -100,7 +100,12 @@ Route::prefix('admin')->middleware(['auth', 'admin', 'role:admin'])->group(funct
 Route::prefix('governor')->middleware(['auth', 'governor', 'role:governor'])->group(function () {
     Route::get('dashboard', [GovernorController::class, 'showdash']);
     Route::get('detgovernor', [GovernorController::class, 'showGovernorDetails']);
-    Route::get('electors/{id}', [GovernorController::class, 'showGovernorElectors'])->name('governor.show');
-    Route::get('senators/{id}', [GovernorController::class, 'showGovernorSenators']);
+    // Route::get('electors/{id}', [GovernorController::class, 'showGovernorElectors'])->name('governor.show');
+    // Route::get('senators/{id}', [GovernorController::class, 'showGovernorSenators']);
+
+    Route::get('/electors/{id}', [GovernorController::class, 'showGovernorElectors'])->name('governor.electors');
+    Route::get('/senator/{id}', [GovernorController::class, 'showGovernorSenators'])->name('governor.senators');
+    Route::get('/parle/{id}', [GovernorController::class, 'showGovernorParlementaire'])->name('governor.parliament');
+
     Route::get('parlementaire/{id}', [GovernorController::class, 'showGovernorParlementaire']);
 });

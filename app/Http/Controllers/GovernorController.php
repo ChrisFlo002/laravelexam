@@ -26,18 +26,18 @@ class GovernorController extends Controller
     public function showGovernorElectors(int $id)
     {
         $electors = Elector::where('state_id', $id)->get();
-        return view('governor.index', ['infos' => $electors]);
+        return view('governor.index', ['infos' => $electors  ?? collect()]);
     }
 
     public function showGovernorSenators(int $id)
     {
         $senators = Senator::where('state_id', $id)->get();
-        return view('governor.index', ['infos' => $senators]);
+        return view('governor.index', ['infos' => $senators  ?? collect()]);
     }
     public function showGovernorParlementaire(int $id)
     {
         $parles = Parlementaire::where('state_id', $id)->get();
-        return view('governor.index', ['infos' => $parles]);
+        return view('governor.index', ['infos' => $parles  ?? collect()]);
     }
 
     public function update(Request $req, int $id)
