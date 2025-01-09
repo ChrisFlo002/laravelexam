@@ -9,6 +9,7 @@ use App\Http\Controllers\StateController;
 use App\Http\Controllers\ElectorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SenatorController;
+use App\Http\Controllers\Secretaire;
 use App\Http\Controllers\GovernorController;
 use App\Http\Controllers\ParlementaireController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -17,26 +18,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-        ->name('login');
-Route::view('admin','admin')
-->middleware(['auth','verified','admin'])
-->name('admin');
+    ->name('login');
+Route::view('admin', 'admin')
+    ->middleware(['auth', 'verified', 'admin'])
+    ->name('admin');
 
-Route::view('governor','governor')
-->middleware(['auth','verified','governor'])
-->name('governor');
+Route::view('governor', 'governor')
+    ->middleware(['auth', 'verified', 'governor'])
+    ->name('governor');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    ->name('logout');
+        ->name('logout');
 });
 
-require __DIR__.'/auth.php';
-Route::middleware(['auth','admin','role:admin'])->group(function(){
-    Route::get('admin/dashboard',[AdminController::class, 'showdash']);
+require __DIR__ . '/auth.php';
+Route::middleware(['auth', 'admin', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'showdash']);
+    //states
     //states
     Route::get('/state', [StateController::class, 'showStateHome']);
     Route::get('/newstate', [StateController::class, 'showStateCreate']);
@@ -58,7 +60,7 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::get('/delparty/{id}', [PartyController::class, 'deleteParty']);
     Route::post('/postparty', [PartyController::class, 'createParty']);
     Route::get('/edparty/{id}', [PartyController::class, 'updateParty']);
-    Route::put('/edparty/{id}', [PartyController::class,'update']);
+    Route::put('/edparty/{id}', [PartyController::class, 'update']);
     //governor
     Route::get('/governor', [GovernorController::class, 'showGovernorHome']);
     Route::get('/newgovernor', [GovernorController::class, 'showGovernorCreate']);
@@ -87,9 +89,18 @@ Route::middleware(['auth','admin','role:admin'])->group(function(){
     Route::get('/delelector/{id}', [ElectorController::class, 'deleteelector']);
     Route::get('/edelector/{id}', [ElectorController::class, 'updateelector']);
     Route::put('/edelector/{id}', [ElectorController::class, 'update']);
+
+    // Secreataire
+    //elector
+    Route::get('/secretaire', [Secretaire::class, 'showSecretaireHome']);
+    Route::get('/newSecretaire', [Secretaire::class, 'showElectorCreate']);
+    Route::post('/postSecretaire', [Secretaire::class, 'createSecretaire']);
+    Route::get('/delSecretaire/{id}', [Secretaire::class, 'deleteSecretaire']);
+    Route::get('/edSecretaire/{id}', [Secretaire::class, 'updateSecretaire']);
+    Route::put('/edSecretaire/{id}', [Secretaire::class, 'update']);
 });
-Route::middleware(['auth','governor','role:governor'])->group(function(){
-    Route::get('governor/dashboard',[GovernorController::class, 'showdash']);
+Route::middleware(['auth', 'governor', 'role:governor'])->group(function () {
+    Route::get('governor/dashboard', [GovernorController::class, 'showdash']);
 });
 //common routes controllers
 //states
@@ -110,5 +121,3 @@ Route::middleware(['auth','governor','role:governor'])->group(function(){
 
 
 //elector
-
-
